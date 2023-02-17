@@ -30,4 +30,8 @@ public class Quantity {
     public String toString() {
         return magnitude + " " + unit;
     }
+
+    public Quantity add(Quantity other) {
+        return new Quantity(other.convertTo(unit).magnitude + magnitude, unit);
+    }
 }
