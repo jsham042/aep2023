@@ -69,4 +69,18 @@ public class QuantityTest {
         var oneTeaspoon = new Quantity(1, Unit.TSP);
         assertEquals(oneFoot, oneFoot.add(oneTeaspoon));
     }
+
+    @Test
+    public void oneHundredCelsiusShouldEqual212F() {
+        var oneHundredCelsius = new Quantity(100, Unit.CELSIUS);
+        var twoHundredTwelveFahrenheit = new Quantity(212, Unit.FAHRENHEIT);
+        assertEquals(oneHundredCelsius, twoHundredTwelveFahrenheit);
+    }
+
+    @Test
+    public void thirtyTwoFahrenheitShouldEqualZeroCelsius() {
+        var zeroCelsius = new Quantity(0, Unit.CELSIUS);
+        var thirtyTwoFahrenheit = new Quantity(32, Unit.FAHRENHEIT);
+        assertEquals(thirtyTwoFahrenheit, zeroCelsius);
+    }
 }
