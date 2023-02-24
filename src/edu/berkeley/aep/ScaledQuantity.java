@@ -29,4 +29,8 @@ public class ScaledQuantity {
     public String toString() {
         return magnitude + " " + unit;
     }
+
+    public boolean betterThan(ScaledQuantity other) {
+        return magnitude > other.convertTo(unit).magnitude;
+    }
 }

@@ -3,6 +3,7 @@ package edu.berkeley.aep;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class QuantityTest {
 
@@ -82,5 +83,19 @@ public class QuantityTest {
         var zeroCelsius = new ScaledQuantity(0, Unit.CELSIUS);
         var thirtyTwoFahrenheit = new ScaledQuantity(32, Unit.FAHRENHEIT);
         assertEquals(thirtyTwoFahrenheit, zeroCelsius);
+    }
+
+    @Test
+    public void twoFeetShouldBeBetterThanThirteenInches() {
+        var twoFeet = new ScaledQuantity(2, Unit.FOOT);
+        var thirteenInches = new ScaledQuantity(13, Unit.INCH);
+        assertTrue(twoFeet.betterThan(thirteenInches));
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void shouldNotBeAbleToCompareFeetAndTeaspoons() {
+        var oneFoot = new ArithmeticQuantity(1, Unit.FOOT);
+        var oneTeaspoon = new ArithmeticQuantity(1, Unit.TSP);
+        assertTrue(oneFoot.betterThan(oneTeaspoon));
     }
 }
