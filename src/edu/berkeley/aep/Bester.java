@@ -2,18 +2,18 @@ package edu.berkeley.aep;
 
 // Understands how to find the biggest out of the supplied objects
 public class Bester {
-    private final ScaledQuantity[] quantities;
+    private final Bestable[] bestables;
 
-    public Bester(ScaledQuantity... quantities) {
-        if (quantities.length < 1) {
+    public Bester(Bestable... bestables) {
+        if (bestables.length < 1) {
             throw new RuntimeException("At least one quantity required");
         }
-        this.quantities = quantities;
+        this.bestables = bestables;
     }
 
-    public ScaledQuantity best() {
-        var best = quantities[0];
-        for (var quantity: quantities) {
+    public Bestable best() {
+        var best = bestables[0];
+        for (var quantity: bestables) {
             if (quantity.betterThan(best)) {
                 best = quantity;
             }
