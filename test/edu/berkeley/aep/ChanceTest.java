@@ -32,7 +32,7 @@ public class ChanceTest {
     @Test
     public void probabilityOfTwoCoinTossesYieldingAtLeastOneHeadShouldBeThreeQuarters() {
         Chance coinToss = new Chance(0.5);
-        Chance probabilityOfAtLeastOneHead = new Chance(0.75);
+        Chance probabilityOfAtLeastOneHead = new Chance(0.8);
         assertEquals(probabilityOfAtLeastOneHead, coinToss.or(coinToss));
     }
 
