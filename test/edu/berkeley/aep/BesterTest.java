@@ -15,6 +15,14 @@ public class BesterTest {
         assertEquals(oneYard, bester.best());
     }
 
+    @Test
+    public void shouldFindTheBestChance() {
+        var dieRoll = new Chance(1/6);
+        var coinToss = new Chance(0.5);
+        var bester = new Bester(dieRoll, coinToss);
+        assertEquals(coinToss, bester.best());
+    }
+
     @Test(expected = RuntimeException.class)
     public void shouldThrowAnExceptionIfYouPassAnEmptyArray() {
         var bester = new Bester();

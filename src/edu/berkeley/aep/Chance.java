@@ -1,8 +1,6 @@
 package edu.berkeley.aep;
 
-import java.util.Objects;
-
-public class Chance {
+public class Chance implements Bestable<Chance> {
 
     private final double probability;
 
@@ -38,5 +36,10 @@ public class Chance {
     @Override
     public String toString() {
         return "Chance with probabiltiy " + probability;
+    }
+
+    @Override
+    public boolean betterThan(Chance other) {
+        return probability > other.probability;
     }
 }

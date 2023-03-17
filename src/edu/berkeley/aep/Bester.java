@@ -13,9 +13,9 @@ public class Bester {
 
     public Bestable best() {
         var best = bestables[0];
-        for (var quantity: bestables) {
-            if (quantity.betterThan(best)) {
-                best = quantity;
+        for (var challenger: bestables) {
+            if (challenger.betterThan(best)) {
+                best = challenger;
             }
         }
         return best;
